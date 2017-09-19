@@ -12,7 +12,7 @@ app.set('view engine','html');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-var db_url = 'mongodb://admin:1234@localhost:27017/athletes'
+var db_url = 'mongodb://localhost:27017/athletes'
 mongoose.connect(db_url,{useMongoClient: true, promiseLibrary: global.Promise });
 /*var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -39,12 +39,8 @@ var athleteSchema = new mongoose.Schema({
   drinks_alcohol: Boolean,
   married : Boolean
 })
-var Athlete = mongoose.model('Athlete',athleteSchema);/*
-var joe = new Athlete({first_name: 'Joe' ,last_name: 'Schmloe'});
-joe.save(function(err,joe){
-  if (err) return console.error(err);
-  console.log("YASS");
-});*/
+var Athlete = mongoose.model('Athlete',athleteSchema);
+
 function getAthletes(res){
   Athlete.find(function(err, athletes){
     if(err){
@@ -63,7 +59,20 @@ app.post('/athletes',function(req,res,next){
   console.log(req);
   Athlete.create({
     first_name: req.body.first_name,
-    last_name: req.body.last_name
+    last_name: req.body.last_name,
+    dob : req.body.dob,
+    nationality: req.body.nationality,
+    association: req.body.association,
+    team: req.body.team,
+    gender: req.body.gender,
+    sports: req.body.sports,
+    about: req.body.about,
+    interests: req.body.interests,
+    charitites: req.body.charitites,
+    social_media: req.body.social_media,
+    pets: req.body.pets,
+    drinks_alcohol: req.body.drinks_alcohol,
+    married : req.body.married
   },function(err,athlete){
     if(err) res.send(err);
     else {

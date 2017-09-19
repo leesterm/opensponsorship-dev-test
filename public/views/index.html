@@ -10,26 +10,26 @@
     <script src="js/athletes.js"></script>
   </head>
   <body ng-controller="mainController">
-    <div>
-      <div class="container">
+    <div class="container">
+      <div id="form-container">
         <h1>New Athlete</h1>
         <form>
           <div class="form-group">
             <label for="first_name">First Name:</label><input id="first_name" type="text" class="form-control" ng-model='formData.first_name'></input>
             <label for="last_name">Last Name:</label><input id="last_name" type="text" class="form-control" ng-model='formData.last_name'></input>
-
             <label for="dob">Date of Birth:</label><input type="text" class="form-control" placeholder="" ng-model='formData.dob'></input>
-            <label for="nationality">Nationality:</label><input type="text" class="form-control" placeholder="" ng-model='formData.nationality'></input>
-            <label for="location">Location:</label><input type="text" class="form-control" placeholder="" ng-model='formData.location'></input>
-            <label for="association">association:</label><input type="text" class="form-control" placeholder="" ng-model='formData.association'></input>
-            <label for="team">Team:</label><input type="text" class="form-control" placeholder="" ng-model='formData.team'></input>
-
             <label for="gender">Gender: </label>
             <select id="gender" class="form-control" ng-model='formData.gender'>
               <option>Male</option>
               <option>Female</option>
             </select>
+            <label for="nationality">Nationality:</label><input type="text" class="form-control" placeholder="" ng-model='formData.nationality'></input>
+            <label for="location">Location:</label><input type="text" class="form-control" placeholder="" ng-model='formData.location'></input>
+          </div>
 
+          <div class="form-group">
+            <label for="association">Association:</label><input type="text" class="form-control" placeholder="" ng-model='formData.association'></input>
+            <label for="team">Team:</label><input type="text" class="form-control" placeholder="" ng-model='formData.team'></input>
             <label for="sports">Sports: </label>
             <select id="sports" class="form-control" ng-model='formData.sports'>
               <option>Golf</option>
@@ -84,16 +84,18 @@
             </select>
             <label for="about">About:</label><textarea class="form-control" rows="" id="about" ng-model='formData.about'></textarea>
             <label for="interests">Interests:</label><input type="text" class="form-control" placeholder="" ng-model='formData.interests'></input>
+          </div>
+          <div class="form-group">
             <label for="charities">Charities:</label><input type="text" class="form-control" placeholder="" ng-model='formData.charities'></input>
             <label for="social_media">Social Media:</label><input type="text" class="form-control" placeholder="" ng-model='formData.social_media'></input>
             <label for="pets">Have pets?:</label><input type="checkbox" class="form-control" placeholder="" ng-model='formData.pets'></input>
             <label for="drinks_alcohol">Do you drink alcohol?:</label><input type="checkbox" class="form-control" placeholder="" ng-model='formData.drinks_alcohol'></input>
             <label for="married">Are you married?:</label><input type="checkbox" class="form-control" placeholder="" ng-model='formData.married'></input>
-
           </div>
+
           <button type="submit" class="btn" ng-click="createAthlete()">Create Athlete</button>
         </form>
-      <div>
+      </div>
 
       <div id="athletes-container">
         <div>Athletes:</div>
