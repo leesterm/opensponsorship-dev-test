@@ -3,18 +3,93 @@
   <head>
     <meta charset="utf-8">
     <title>opensponsorship-dev-test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/athletes.js"></script>
   </head>
-  <body  ng-controller="mainController">
+  <body ng-controller="mainController">
     <div>
       <div class="container">
         <h1>New Athlete</h1>
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="First Name" ng-model='formData.first_name'></input>
-            <input type="text" class="form-control" placeholder="Last Name" ng-model='formData.last_name'></input>
-            
+            <label for="first_name">First Name:</label><input id="first_name" type="text" class="form-control" ng-model='formData.first_name'></input>
+            <label for="last_name">Last Name:</label><input id="last_name" type="text" class="form-control" ng-model='formData.last_name'></input>
+
+            <label for="dob">Date of Birth:</label><input type="text" class="form-control" placeholder="" ng-model='formData.dob'></input>
+            <label for="nationality">Nationality:</label><input type="text" class="form-control" placeholder="" ng-model='formData.nationality'></input>
+            <label for="location">Location:</label><input type="text" class="form-control" placeholder="" ng-model='formData.location'></input>
+            <label for="association">association:</label><input type="text" class="form-control" placeholder="" ng-model='formData.association'></input>
+            <label for="team">Team:</label><input type="text" class="form-control" placeholder="" ng-model='formData.team'></input>
+
+            <label for="gender">Gender: </label>
+            <select id="gender" class="form-control" ng-model='formData.gender'>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+
+            <label for="sports">Sports: </label>
+            <select id="sports" class="form-control" ng-model='formData.sports'>
+              <option>Golf</option>
+              <option>Tennis</option>
+              <option>Cricket</option>
+              <option>Basketball</option>
+              <option>Baseball</option>
+              <option>American Football</option>
+              <option>Aquatics</option>
+              <option>Archery</option>
+              <option>Automobile Racing</option>
+              <option>Badminton</option>
+              <option>Beach Volleyball</option>
+              <option>Bobsleigh</option>
+              <option>Body Building</option>
+              <option>Boxing</option>
+              <option>Cross Country Running</option>
+              <option>Cross Country Skiing</option>
+              <option>Curling</option>
+              <option>Cycling</option>
+              <option>Darts</option>
+              <option>Decathlon</option>
+              <option>Down Hill Skiing</option>
+              <option>Equestrianism</option>
+              <option>eSports</option>
+              <option>Fencing</option>
+              <option>Field Hockey</option>
+              <option>Figure Skating</option>
+              <option>Gymnastics</option>
+              <option>Ice Hockey</option>
+              <option>Martial Arts</option>
+              <option>Mixed Martial Arts</option>
+              <option>Modern Pentathlon</option>
+              <option>Motorcycle Racing</option>
+              <option>Netball</option>
+              <option>Polo</option>
+              <option>Racquetball</option>
+              <option>Rowing</option>
+              <option>Rugby</option>
+              <option>Sailing</option>
+              <option>Softball</option>
+              <option>Shooting</option>
+              <option>Skateboarding</option>
+              <option>Skeet Shooting</option>
+              <option>Skeleton</option>
+              <option>Snow Boarding</option>
+              <option>Soccer (Football)</option>
+              <option>Squash</option>
+              <option>Surfing</option>
+              <option>Swimming</option>
+              <option>Track and Field</option>
+            </select>
+            <label for="about">About:</label><textarea class="form-control" rows="" id="about" ng-model='formData.about'></textarea>
+            <label for="interests">Interests:</label><input type="text" class="form-control" placeholder="" ng-model='formData.interests'></input>
+            <label for="charities">Charities:</label><input type="text" class="form-control" placeholder="" ng-model='formData.charities'></input>
+            <label for="social_media">Social Media:</label><input type="text" class="form-control" placeholder="" ng-model='formData.social_media'></input>
+            <label for="pets">Have pets?:</label><input type="checkbox" class="form-control" placeholder="" ng-model='formData.pets'></input>
+            <label for="drinks_alcohol">Do you drink alcohol?:</label><input type="checkbox" class="form-control" placeholder="" ng-model='formData.drinks_alcohol'></input>
+            <label for="married">Are you married?:</label><input type="checkbox" class="form-control" placeholder="" ng-model='formData.married'></input>
+
           </div>
           <button type="submit" class="btn" ng-click="createAthlete()">Create Athlete</button>
         </form>

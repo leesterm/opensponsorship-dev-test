@@ -22,10 +22,24 @@ db.once('open', function() {
 });*/
 
 //MODEL
-var Athlete = mongoose.model('Athlete',{
-    first_name : String,
-    last_name : String
-});/*
+var athleteSchema = new mongoose.Schema({
+  first_name: String,
+  last_name: String,
+  dob : Date,
+  nationality: String,
+  association: String,
+  team: String,
+  gender: String,
+  sports: Array,
+  about: String,
+  interests: String,
+  charitites: String,
+  social_media: String,
+  pets: String,
+  drinks_alcohol: Boolean,
+  married : Boolean
+})
+var Athlete = mongoose.model('Athlete',athleteSchema);/*
 var joe = new Athlete({first_name: 'Joe' ,last_name: 'Schmloe'});
 joe.save(function(err,joe){
   if (err) return console.error(err);
