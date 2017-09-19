@@ -12,7 +12,7 @@ app.set('view engine','html');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-var db_url = 'mongodb://localhost:27017/athletes'
+var db_url = 'mongodb://admin:1234@localhost:27017/athletes'
 mongoose.connect(db_url,{useMongoClient: true, promiseLibrary: global.Promise });
 /*var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
