@@ -8,9 +8,9 @@ app.controller('mainController',function($scope,$http) {
   $http({
     method:'GET',
     url:'/athletes'
-  }).then(function(data){
-    $scope.athletes = data;
-    console.log(data);
+  }).then(function(success){
+    $scope.athletes = success.data;
+    console.log(success);
   },function(error){
     console.log('Error:'+error);
   });
@@ -27,5 +27,5 @@ app.controller('mainController',function($scope,$http) {
 
       });
   }
-  
+
 });

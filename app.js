@@ -26,7 +26,11 @@ var Athlete = mongoose.model('Athlete',{
     first_name : String,
     last_name : String
 });
-
+var joe = new Athlete({first_name: 'Joe' ,last_name: 'Schmloe'});
+joe.save(function(err,joe){
+  if (err) return console.error(err);
+  console.log("YASS");
+});
 //ROUTES
 app.get('/athletes',function(req,res,next){
 	Athlete.find(function(err, athletes){

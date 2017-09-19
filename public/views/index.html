@@ -7,8 +7,15 @@
     <script src="js/athletes.js"></script>
   </head>
   <body  ng-controller="mainController">
+    <h1>Athletes</h1>
     <div>
-
+      <div id="athletes-container">
+        <div>Athletes:</div>
+        <ul ng-repeat="athlete in athletes">
+          <li>First Name: {{athlete.first_name}}</li>
+          <li>Last Name: {{athlete.last_name}}</li>
+        </ul>
+      </div>
     </div>
 
   </body>
