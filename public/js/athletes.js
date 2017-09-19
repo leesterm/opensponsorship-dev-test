@@ -19,12 +19,15 @@ app.controller('mainController',function($scope,$http) {
   $scope.createAthlete = function(){
       $http({
         method:'POST',
-        url:'/athletes'
+        url:'/athletes',
+        data: $scope.formData
       }).then(function(success){
-
+        console.log("Success");
+        $scope.formData = {};
+        $scope.athletes = success.data;
       },
       function(error){
-
+        console.log(error);
       });
   }
 

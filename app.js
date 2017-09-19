@@ -25,28 +25,40 @@ db.once('open', function() {
 var Athlete = mongoose.model('Athlete',{
     first_name : String,
     last_name : String
-});
+});/*
 var joe = new Athlete({first_name: 'Joe' ,last_name: 'Schmloe'});
 joe.save(function(err,joe){
   if (err) return console.error(err);
   console.log("YASS");
-});
-//ROUTES
-app.get('/athletes',function(req,res,next){
-	Athlete.find(function(err, athletes){
+});*/
+function getAthletes(res){
+  Athlete.find(function(err, athletes){
     if(err){
       res.send(err);
     }else{
       res.json(athletes);
     }
   });
+};
+//ROUTES
+app.get('/athletes',function(req,res,next){
+	getAthletes(res);
 });
 
-app.post('athletes',function(req,res,next){
-
+app.post('/athletes',function(req,res,next){
+  console.log(req);
+  Athlete.create({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name
+  },function(err,athlete){
+    if(err) res.send(err);
+    else {
+      getAthletes(res);
+    }
+  });
 });
 
-app.get('*',function(req,res,next){
+app.get('/',function(req,res,next){
   res.sendfile('public/views/index.html');
 });
 

@@ -7,8 +7,19 @@
     <script src="js/athletes.js"></script>
   </head>
   <body  ng-controller="mainController">
-    <h1>Athletes</h1>
     <div>
+      <div class="container">
+        <h1>New Athlete</h1>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="First Name" ng-model='formData.first_name'></input>
+            <input type="text" class="form-control" placeholder="Last Name" ng-model='formData.last_name'></input>
+            
+          </div>
+          <button type="submit" class="btn" ng-click="createAthlete()">Create Athlete</button>
+        </form>
+      <div>
+
       <div id="athletes-container">
         <div>Athletes:</div>
         <ul ng-repeat="athlete in athletes">
@@ -17,6 +28,5 @@
         </ul>
       </div>
     </div>
-
   </body>
 </html>
