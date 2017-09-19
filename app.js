@@ -4,8 +4,14 @@ var promise = require('bluebird');
 var bodyParser = require('body-parser');
 
 var app = express();
+
+app.use(express.static('public'));  //include scripts/js files
 app.set('view engine','html');
+
 //TODO: SETUP BODY PARSER
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
 var db_url = 'mongodb://admin:1234@localhost:27017/athletes'
 mongoose.connect(db_url,{useMongoClient: true, promiseLibrary: global.Promise });
 /*var db = mongoose.connection;
@@ -33,11 +39,11 @@ app.get('/athletes',function(req,res,next){
 });
 
 app.post('athletes',function(req,res,next){
-  
+
 });
 
 app.get('*',function(req,res,next){
-  res.sendfile('./views/index.html');
+  res.sendfile('public/views/index.html');
 });
 
 app.listen(3000,function(){
